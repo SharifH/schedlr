@@ -2,6 +2,16 @@ Schedlr::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  root :to => "home#index"
+
+  devise_for :directors, :class_name => 'User'
+  devise_for :instructors, :class_name => 'User'
+  resources :directors, :instructors, :programs, :sessions
+
+
+  match 'director/sign_up' => 'user_registrations#new', :user => { :user_type => 'director' }
+  match 'instructor/sign_up' => 'user_registrations#new', :user => { :user_type => 'instructor' }
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
