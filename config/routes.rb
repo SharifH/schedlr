@@ -3,11 +3,10 @@ Schedlr::Application.routes.draw do
   # first created -> highest priority.
 
   root :to => "home#index"
-  
 
   devise_for :directors, :class_name => 'User'
   devise_for :instructors, :class_name => 'User'
-  resources :directors, :instructors
+  resources :directors, :instructors, :programs, :sessions
 
 
   match 'director/sign_up' => 'user_registrations#new', :user => { :user_type => 'director' }
