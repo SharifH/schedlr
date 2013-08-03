@@ -1,6 +1,9 @@
-class CreateCalendars < ActiveRecord::Migration
+class CreateAvailabilities < ActiveRecord::Migration
   def change
-    create_table :calendars do |t|
+    create_table :availabilities do |t|
+      t.datetime :start
+      t.datetime :end
+      t.string :availabilityblocks
 
       t.timestamps
     end
