@@ -3,6 +3,8 @@ Schedlr::Application.routes.draw do
   # first created -> highest priority.
 
   root :to => "home#index"
+
+  get 'schedule' => 'instructors#show'
   
 
   devise_for :directors, :class_name => 'User'
