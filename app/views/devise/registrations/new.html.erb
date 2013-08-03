@@ -3,12 +3,12 @@
 
   params[:user][:user_type] ||= 'instructor'
 
-  if ["customer", "designer"].include? params[:user][:user_type].downcase
+  if ["instructor", "director"].include? params[:user][:user_type].downcase
     child_class_name = params[:user][:user_type].downcase.camelize
     user_type = params[:user][:user_type].downcase
   else
-    child_class_name = "Customer"
-    user_type = "customer"
+    child_class_name = "instructor"
+    user_type = "instructor"
   end
 
   resource.rolable = child_class_name.constantize.new if resource.rolable.nil?
