@@ -22,8 +22,11 @@ ActiveRecord::Schema.define(:version => 20130803205444) do
   end
 
   create_table "directors", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_hash"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "instructors", :force => true do |t|
@@ -35,11 +38,19 @@ ActiveRecord::Schema.define(:version => 20130803205444) do
   end
 
   create_table "programs", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "title"
+    t.text     "description"
+    t.string   "url"
+    t.integer  "director_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "sessions", :force => true do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.string   "day"
+    t.integer  "program_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

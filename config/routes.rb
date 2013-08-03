@@ -4,16 +4,16 @@ Schedlr::Application.routes.draw do
 
   root :to => "home#index"
 
-  get 'schedule' => 'instructors#show'
-  
 
   devise_for :directors, :class_name => 'User'
   devise_for :instructors, :class_name => 'User'
-  resources :directors, :instructors
+  resources :directors, :instructors, :programs, :sessions
 
 
   match 'director/sign_up' => 'user_registrations#new', :user => { :user_type => 'director' }
   match 'instructor/sign_up' => 'user_registrations#new', :user => { :user_type => 'instructor' }
+
+  get 'schedule' => 'instructors#show'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

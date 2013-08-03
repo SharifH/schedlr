@@ -1,4 +1,8 @@
-class Director < ActiveRecord::Base
-  # attr_accessible :title, :body
- has_one :user, :as => :rolable
+class Director < User
+  attr_accessible :company
+  
+  has_one :user, :as => :rolable  
+  has_many :programs
+  has_many :sessions, through: :programs
+
 end
