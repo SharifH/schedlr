@@ -11,3 +11,14 @@
  *= require_self
  *= require_tree .
  */
+
+
+
+/* just for debugger box at bottom of page--used in devlopment environment only */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
